@@ -15,15 +15,12 @@
 
   // ── Profile ──
   document.title = site.name ? site.name + " — Games" : "Games";
-  $("brandName").textContent = site.name || "";
   const ICONS = window.ICONS || {};
   const setIcon = (node, name, fallback) => {
     if (ICONS[name]) node.innerHTML = ICONS[name];
     else node.textContent = name || fallback || "";
   };
   setIcon($("brandMark"), site.mark, "★");
-  setIcon($("avatar"), site.mark, "★");
-  $("badge").textContent = site.badge || "";
   $("name").textContent = site.name || "";
   $("tagline").textContent = site.tagline || "";
   $("fine").textContent = site.fine || "";
@@ -40,7 +37,7 @@
 
   // ── Cards ──
   function card(g, opts = {}) {
-    const li = el("li", "reveal");
+    const li = el("li");
     const live = !!g.url;
     const c = el(live ? "a" : "div", "card");
     if (opts.slim) c.classList.add("slim");
@@ -83,7 +80,7 @@
   }
 
   // ── Filters ──
-  const tags = ["all", ...new Set(games.flatMap((g) => g.tags || []))];
+  const tags = games.length > 5 ? ["all", ...new Set(games.flatMap((g) => g.tags || []))] : [];
   let active = "all";
   for (const t of tags) {
     const b = el("button", null, t);
@@ -100,7 +97,6 @@
     observe($("grid"));
   }
 
-  $("extras").replaceChildren(...(site.extras || []).map((x) => card(x, { slim: true })));
 
   // ── Scroll reveal (fade + rise as things enter the screen) ──
   const io = "IntersectionObserver" in window
@@ -145,13 +141,4 @@
     }
   }
 
-  // ── Nav highlight follows the section you're looking at ──
-  const navLinks = [...document.querySelectorAll(".site-nav a")];
-  const sections = navLinks.map((a) => document.querySelector(a.getAttribute("href")));
-  window.addEventListener("scroll", () => {
-    let idx = 0;
-    sections.forEach((s, i) => { if (s && s.getBoundingClientRect().top < innerHeight * 0.4) idx = i; });
-    if (innerHeight + scrollY >= document.body.scrollHeight - 4) idx = sections.length - 1;
-    navLinks.forEach((a, i) => a.classList.toggle("active", i === idx));
-  }, { passive: true });
 })();

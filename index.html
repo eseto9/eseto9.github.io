@@ -19,47 +19,27 @@
 
   <div class="wrap">
     <header class="site-head">
-      <a class="brand" href="#top">
+      <div class="brand">
         <span class="brand-mark" id="brandMark"></span>
-        <span id="brandName"></span>
-      </a>
-      <nav class="site-nav" aria-label="Main">
-        <a href="#top" class="active">Home</a>
-        <a href="#games">Games</a>
-        <a href="#contact">Contact</a>
-      </nav>
+        <div class="brand-text">
+          <h1 id="name"></h1>
+          <p class="tagline" id="tagline"></p>
+        </div>
+      </div>
+      <div class="socials" id="social"></div>
     </header>
 
-    <main id="top">
-      <section class="profile reveal">
-        <p class="badge"><i class="dot"></i><span id="badge"></span></p>
-        <div class="avatar" id="avatar"></div>
-        <h1 id="name"></h1>
-        <p class="tagline" id="tagline"></p>
-        <div class="socials" id="social"></div>
-        <p class="fine" id="fine"></p>
-      </section>
-
-      <section id="games" class="section">
-        <div class="section-head reveal">
-          <h2>Play my <em>games</em></h2>
-          <div class="filters" id="filters" role="group" aria-label="Filter by tag"></div>
-        </div>
-        <ul class="cards" id="grid"></ul>
-      </section>
-
-      <section id="contact" class="section">
-        <div class="section-head reveal">
-          <h2>More</h2>
-          <span class="mono">ALSO</span>
-        </div>
-        <ul class="cards" id="extras"></ul>
-      </section>
+    <main id="games">
+      <div class="section-head">
+        <h2>Play my <em>games</em></h2>
+        <div class="filters" id="filters" role="group" aria-label="Filter by tag"></div>
+      </div>
+      <ul class="cards" id="grid"></ul>
     </main>
 
     <footer class="site-foot">
       <span>© <span id="year"></span> <span id="footName"></span></span>
-      <span class="mono">MADE WITH TOO MUCH COFFEE</span>
+      <span class="mono" id="fine"></span>
     </footer>
   </div>
 

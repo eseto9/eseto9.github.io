@@ -5,21 +5,15 @@
 
 window.SITE = {
   name: "eseto9",
-  mark: "controller",                        // icon in the header + big avatar tile (see icons.js)
-  badge: "Indie game dev · Browser games",   // pill above your name
-  tagline: "I make small, strange, polished games you can play right in your browser. Pick one below and jump in.",
-  fine: "No downloads · No accounts · Just click and play",
+  mark: "controller",                        // icon next to your name (see icons.js)
+  tagline: "Indie game dev · small, polished games you can play in your browser",
+  fine: "No downloads · No accounts · Just click and play",   // footer line
 
-  // Pill buttons under your name.
+  // Pill buttons in the top right.
   // icon can be: github, mail, youtube, link
   links: [
     { label: "GitHub", icon: "github", url: "https://github.com/eseto9" },
     // { label: "Email", icon: "mail", url: "mailto:you@example.com" },
-  ],
-
-  // Slim cards in the "More" section at the bottom.
-  extras: [
-    { title: "All my code on GitHub", blurb: "Every game here is open source.", url: "https://github.com/eseto9", icon: "github" },
   ],
 };
 
@@ -27,7 +21,7 @@ window.SITE = {
 //   title    → game name
 //   blurb    → one or two sentences under the name
 //   url      → where the card sends people (leave "" to show "coming soon")
-//   tags     → little labels; also make the filter buttons at the top
+//   tags     → little labels (filter buttons appear once you have 6+ games)
 //   color    → card accent color (stripe, icon, hover glow)
 //   icon     → an animated icon from icons.js: puzzle, boat, firefly, controller
 //   image    → OR a picture instead of an icon, e.g. "img/mygame.png"

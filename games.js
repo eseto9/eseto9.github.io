@@ -6,7 +6,7 @@
 window.SITE = {
   name: "Eugene's Games",
   mark: "controller",                        // icon next to your name (see icons.js)
-  tagline: "Learning how to create games with Claude · small games you can play in your browser",
+  tagline: "Learning how to create games with Claude",
   fine: "No downloads · No accounts · Just click and play",   // footer line
 
   // Pill buttons in the top right.

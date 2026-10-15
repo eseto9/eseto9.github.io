@@ -25,7 +25,7 @@ window.SITE = {
 //   color    → card accent color (stripe, icon, hover glow)
 //   icon     → an animated icon from icons.js: puzzle, boat, firefly, controller
 //   image    → OR a picture instead of an icon, e.g. "img/mygame.png"
-//   featured → true makes it the big dark-green card (use on one game)
+//   featured → true makes it a dark charcoal card (optional; currently unused)
 window.GAMES = [
   {
     title: "LUMEN",
@@ -34,7 +34,6 @@ window.GAMES = [
     tags: ["arcade", "multiplayer"],
     color: "#f2cf5b",
     icon: "firefly",
-    featured: true,
   },
   {
     title: "Puzzle Playground",

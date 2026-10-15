@@ -247,23 +247,34 @@ a, button, .card, .social, .filters button { cursor: pointer; }
 /* ── Icon animations ── */
 .ic * { transform-box: fill-box; transform-origin: center; }
 
-/* puzzle: loose piece floats, snaps into place on hover */
+/* puzzle: loose piece floats; on hover it snaps in and out fast with popping sparks */
 .pz-b-float { animation: pzFloat 3.2s ease-in-out infinite; }
-.pz-b { transform: translate(5px, -5px) rotate(10deg); transition: transform .45s cubic-bezier(.34, 1.8, .64, 1); }
-.pz-spark { opacity: 0; transform: scale(0); transition: opacity .3s .25s, transform .4s .25s cubic-bezier(.34, 1.8, .64, 1); }
-.card:hover .pz-b-float { animation-play-state: paused; }
-.card:hover .pz-b { transform: none; }
-.card:hover .pz-spark { opacity: 1; transform: scale(1.4); }
+.pz-b { transform: translate(5px, -5px) rotate(10deg); }
+.pz-spark { opacity: 0; }
+.card:hover .pz-b-float { animation-duration: .9s; }
+.card:hover .pz-b { animation: pzSnap .55s cubic-bezier(.34, 1.6, .64, 1) infinite; }
+.card:hover .pz-a { animation: pzBump .55s ease-out infinite; }
+.card:hover .pz-spark { animation: pzPop .55s ease-out infinite; }
+.card:hover .ps2 { animation-delay: .04s; } .card:hover .ps3 { animation-delay: .08s; } .card:hover .ps4 { animation-delay: .02s; }
 @keyframes pzFloat { 50% { transform: translate(1px, -3px) rotate(3deg); } }
+@keyframes pzSnap { 0% { transform: translate(7px, -6px) rotate(14deg); } 45%, 70% { transform: none; } 100% { transform: translate(7px, -6px) rotate(14deg); } }
+@keyframes pzBump { 0%, 40% { transform: none; } 50% { transform: translateX(-2px) scale(.96); } 65%, 100% { transform: none; } }
+@keyframes pzPop { 0%, 40% { opacity: 0; transform: scale(0); } 50% { opacity: 1; transform: scale(1.6); } 75%, 100% { opacity: 0; transform: scale(.4) translateY(-4px); } }
 
-/* boat: rocks on scrolling waves; waves speed up on hover */
+/* boat: rocks on scrolling waves; on hover it races through choppy water with spray */
 .bt-boat { transform-origin: 50% 90%; animation: btRock 3s ease-in-out infinite; }
 .bt-wave { transform-box: view-box; animation: btWave 3.4s linear infinite; }
 .bt-w2 { animation-duration: 2.4s; animation-direction: reverse; }
-.card:hover .bt-wave { animation-duration: 1.2s; }
-.card:hover .bt-boat { animation-duration: 1.4s; }
+.sp { opacity: 0; }
+.card:hover .bt-wave { animation-duration: .45s; }
+.card:hover .bt-w2 { animation-duration: .32s; }
+.card:hover .bt-boat { animation: btRace .38s ease-in-out infinite; }
+.card:hover .sp { animation: btSpray .5s ease-out infinite; }
+.card:hover .sp2 { animation-delay: .12s; } .card:hover .sp3 { animation-delay: .25s; }
 @keyframes btRock { 0%, 100% { transform: translateY(0) rotate(-4deg); } 50% { transform: translateY(-3px) rotate(4deg); } }
+@keyframes btRace { 0%, 100% { transform: translateY(0) rotate(-7deg); } 50% { transform: translateY(-5px) rotate(5deg); } }
 @keyframes btWave { to { transform: translateX(32px); } }
+@keyframes btSpray { 0% { opacity: 0; transform: translate(0, 0) scale(.5); } 25% { opacity: 1; } 100% { opacity: 0; transform: translate(-9px, -10px) scale(1.2); } }
 
 /* firefly: glow pulses, wings flutter, lights orbit; brighter on hover */
 .ff-glow { animation: ffPulse 2.6s ease-in-out infinite; transition: r .4s; }
@@ -286,6 +297,20 @@ a, button, .card, .social, .filters button { cursor: pointer; }
 @keyframes ctBlink { 0%, 30%, 100% { opacity: 1; transform: scale(1); } 15% { opacity: .35; transform: scale(.7); } }
 .brand:hover .ic-controller { animation: wiggle .5s ease-in-out; }
 @keyframes wiggle { 25% { transform: rotate(-8deg); } 75% { transform: rotate(8deg); } }
+
+/* Any other game (an image, or an icon without its own hover animation):
+   the tile bounces quickly and a shine sweeps across it on hover. */
+.thumb { position: relative; }
+.glyph { display: inline-block; }
+.thumb::after {
+  content: ""; position: absolute; inset: 0; pointer-events: none;
+  background: linear-gradient(105deg, transparent 35%, rgba(255,255,255,.55) 50%, transparent 65%);
+  transform: translateX(-120%);
+}
+.card:hover .thumb:not(:has(.ic-firefly, .ic-puzzle, .ic-boat)) > * { animation: tileBounce .45s ease-in-out infinite; }
+.card:hover .thumb:not(:has(.ic-firefly, .ic-puzzle, .ic-boat))::after { animation: shine .9s ease-in-out infinite; }
+@keyframes tileBounce { 0%, 100% { transform: translateY(0) rotate(0); } 25% { transform: translateY(-4px) rotate(-6deg); } 75% { transform: translateY(1px) rotate(6deg); } }
+@keyframes shine { to { transform: translateX(120%); } }
 
 /* arrow nudges on hover */
 a.card:hover .ic-arrow { animation: nudge .9s ease-in-out infinite; }

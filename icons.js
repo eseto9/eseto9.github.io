@@ -4,7 +4,8 @@
 // Animations live in styles.css under "Icon animations".
 
 window.ICONS = {
-  // Two jigsaw pieces: the right one floats loose, and snaps in on hover.
+  // Two jigsaw pieces: the right one floats loose; on hover it snaps in and
+  // out rapidly with sparks popping at the joint.
   puzzle: `
 <svg viewBox="0 0 64 64" class="ic ic-puzzle" aria-hidden="true">
   <g class="pz-a">
@@ -15,10 +16,16 @@ window.ICONS = {
     <path d="M36 18 H51 a4 4 0 0 1 4 4 V42 a4 4 0 0 1 -4 4 H36 V37.5 A5.5 5.5 0 0 0 36 26.5 Z"
           fill="currentColor" opacity=".82"/>
   </g></g>
-  <circle class="pz-spark" cx="35" cy="14" r="2" fill="var(--accent)"/>
+  <g class="pz-sparks">
+    <circle class="pz-spark ps1" cx="35" cy="13" r="2.2" fill="var(--accent)"/>
+    <circle class="pz-spark ps2" cx="44" cy="11" r="1.6" fill="var(--accent)"/>
+    <circle class="pz-spark ps3" cx="35" cy="51" r="2" fill="var(--accent)"/>
+    <circle class="pz-spark ps4" cx="27" cy="12" r="1.4" fill="var(--accent)"/>
+  </g>
 </svg>`,
 
-  // A folded paper boat bobbing on scrolling waves.
+  // A folded paper boat bobbing on scrolling waves; on hover it races through
+  // choppy water throwing spray.
   boat: `
 <svg viewBox="0 0 64 64" class="ic ic-boat" aria-hidden="true">
   <defs><clipPath id="boatClip"><rect x="0" y="0" width="64" height="64" rx="14"/></clipPath></defs>
@@ -28,6 +35,11 @@ window.ICONS = {
       <path d="M32 12 L32 37 L45 37 Z" fill="var(--accent)" opacity=".62"/>
       <path d="M13 37 H51 L44 46 H20 Z" fill="currentColor"/>
       <path d="M13 37 L32 41 L51 37" fill="none" stroke="var(--accent)" stroke-width="1.4" opacity=".7"/>
+    </g>
+    <g class="bt-spray">
+      <circle class="sp sp1" cx="14" cy="42" r="1.8" fill="var(--accent)"/>
+      <circle class="sp sp2" cx="11" cy="40" r="1.3" fill="var(--accent)"/>
+      <circle class="sp sp3" cx="17" cy="39" r="1.1" fill="var(--accent)"/>
     </g>
     <path class="bt-wave bt-w1" d="M-32 47 q8 -5 16 0 t16 0 t16 0 t16 0 t16 0 t16 0 t16 0 t16 0 V70 H-32 Z" fill="var(--accent)" opacity=".38"/>
     <path class="bt-wave bt-w2" d="M-32 52 q8 -5 16 0 t16 0 t16 0 t16 0 t16 0 t16 0 t16 0 t16 0 V70 H-32 Z" fill="var(--accent)" opacity=".7"/>

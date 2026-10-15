@@ -18,7 +18,7 @@
   const ICONS = window.ICONS || {};
   const setIcon = (node, name, fallback) => {
     if (ICONS[name]) node.innerHTML = ICONS[name];
-    else node.textContent = name || fallback || "";
+    else node.replaceChildren(el("span", "glyph", name || fallback || ""));
   };
   setIcon($("brandMark"), site.mark, "★");
   $("name").textContent = site.name || "";

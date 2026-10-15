@@ -4,8 +4,8 @@
 // Animations live in styles.css under "Icon animations".
 
 window.ICONS = {
-  // Two jigsaw pieces: the right one floats loose; on hover it snaps in and
-  // out rapidly with sparks popping at the joint.
+  // Two jigsaw pieces: the right one floats loose; on hover it snaps in once
+  // and sparks keep flying out of the joint.
   puzzle: `
 <svg viewBox="0 0 64 64" class="ic ic-puzzle" aria-hidden="true">
   <g class="pz-a">
@@ -17,10 +17,10 @@ window.ICONS = {
           fill="currentColor" opacity=".82"/>
   </g></g>
   <g class="pz-sparks">
-    <circle class="pz-spark ps1" cx="35" cy="13" r="2.2" fill="var(--accent)"/>
-    <circle class="pz-spark ps2" cx="44" cy="11" r="1.6" fill="var(--accent)"/>
-    <circle class="pz-spark ps3" cx="35" cy="51" r="2" fill="var(--accent)"/>
-    <circle class="pz-spark ps4" cx="27" cy="12" r="1.4" fill="var(--accent)"/>
+    <circle class="pz-spark ps1" cx="34" cy="17" r="2.2" fill="var(--accent)"/>
+    <circle class="pz-spark ps2" cx="37" cy="18" r="1.7" fill="var(--accent)"/>
+    <circle class="pz-spark ps3" cx="34" cy="47" r="2" fill="var(--accent)"/>
+    <circle class="pz-spark ps4" cx="31" cy="18" r="1.5" fill="var(--accent)"/>
   </g>
 </svg>`,
 

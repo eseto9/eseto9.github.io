@@ -251,11 +251,11 @@ a, button, .card, .social, .filters button { cursor: pointer; }
 .pz-b-float { animation: pzFloat 3.2s ease-in-out infinite; }
 .pz-b { transform: translate(5px, -5px) rotate(10deg); }
 .pz-spark { opacity: 0; }
-.card:hover .pz-b-float { animation-duration: .9s; }
-.card:hover .pz-b { animation: pzSnap .55s cubic-bezier(.34, 1.6, .64, 1) infinite; }
-.card:hover .pz-a { animation: pzBump .55s ease-out infinite; }
-.card:hover .pz-spark { animation: pzPop .55s ease-out infinite; }
-.card:hover .ps2 { animation-delay: .04s; } .card:hover .ps3 { animation-delay: .08s; } .card:hover .ps4 { animation-delay: .02s; }
+.card:hover .pz-b-float { animation-duration: 1.6s; }
+.card:hover .pz-b { animation: pzSnap 1s cubic-bezier(.34, 1.6, .64, 1) infinite; }
+.card:hover .pz-a { animation: pzBump 1s ease-out infinite; }
+.card:hover .pz-spark { animation: pzPop 1s ease-out infinite; }
+.card:hover .ps2 { animation-delay: .06s; } .card:hover .ps3 { animation-delay: .12s; } .card:hover .ps4 { animation-delay: .03s; }
 @keyframes pzFloat { 50% { transform: translate(1px, -3px) rotate(3deg); } }
 @keyframes pzSnap { 0% { transform: translate(7px, -6px) rotate(14deg); } 45%, 70% { transform: none; } 100% { transform: translate(7px, -6px) rotate(14deg); } }
 @keyframes pzBump { 0%, 40% { transform: none; } 50% { transform: translateX(-2px) scale(.96); } 65%, 100% { transform: none; } }
@@ -266,11 +266,11 @@ a, button, .card, .social, .filters button { cursor: pointer; }
 .bt-wave { transform-box: view-box; animation: btWave 3.4s linear infinite; }
 .bt-w2 { animation-duration: 2.4s; animation-direction: reverse; }
 .sp { opacity: 0; }
-.card:hover .bt-wave { animation-duration: .45s; }
-.card:hover .bt-w2 { animation-duration: .32s; }
-.card:hover .bt-boat { animation: btRace .38s ease-in-out infinite; }
-.card:hover .sp { animation: btSpray .5s ease-out infinite; }
-.card:hover .sp2 { animation-delay: .12s; } .card:hover .sp3 { animation-delay: .25s; }
+.card:hover .bt-wave { animation-duration: .85s; }
+.card:hover .bt-w2 { animation-duration: .65s; }
+.card:hover .bt-boat { animation: btRace .75s ease-in-out infinite; }
+.card:hover .sp { animation: btSpray .9s ease-out infinite; }
+.card:hover .sp2 { animation-delay: .22s; } .card:hover .sp3 { animation-delay: .45s; }
 @keyframes btRock { 0%, 100% { transform: translateY(0) rotate(-4deg); } 50% { transform: translateY(-3px) rotate(4deg); } }
 @keyframes btRace { 0%, 100% { transform: translateY(0) rotate(-7deg); } 50% { transform: translateY(-5px) rotate(5deg); } }
 @keyframes btWave { to { transform: translateX(32px); } }
@@ -307,8 +307,8 @@ a, button, .card, .social, .filters button { cursor: pointer; }
   background: linear-gradient(105deg, transparent 35%, rgba(255,255,255,.55) 50%, transparent 65%);
   transform: translateX(-120%);
 }
-.card:hover .thumb:not(:has(.ic-firefly, .ic-puzzle, .ic-boat)) > * { animation: tileBounce .45s ease-in-out infinite; }
-.card:hover .thumb:not(:has(.ic-firefly, .ic-puzzle, .ic-boat))::after { animation: shine .9s ease-in-out infinite; }
+.card:hover .thumb:not(:has(.ic-firefly, .ic-puzzle, .ic-boat)) > * { animation: tileBounce .8s ease-in-out infinite; }
+.card:hover .thumb:not(:has(.ic-firefly, .ic-puzzle, .ic-boat))::after { animation: shine 1.5s ease-in-out infinite; }
 @keyframes tileBounce { 0%, 100% { transform: translateY(0) rotate(0); } 25% { transform: translateY(-4px) rotate(-6deg); } 75% { transform: translateY(1px) rotate(6deg); } }
 @keyframes shine { to { transform: translateX(120%); } }
 

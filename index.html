@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Games</title>
+  <meta name="description" content="Browser games I've made. Click any card to play.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=Instrument+Serif:ital@1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Soft drifting color blobs + floating bubbles behind everything -->
+  <div class="aurora" aria-hidden="true">
+    <span class="blob b1"></span><span class="blob b2"></span><span class="blob b3"></span><span class="blob b4"></span>
+  </div>
+  <div class="bubbles" id="bubbles" aria-hidden="true"></div>
+
+  <div class="wrap">
+    <header class="site-head">
+      <a class="brand" href="#top">
+        <span class="brand-mark" id="brandMark"></span>
+        <span id="brandName"></span>
+      </a>
+      <nav class="site-nav" aria-label="Main">
+        <a href="#top" class="active">Home</a>
+        <a href="#games">Games</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="profile reveal">
+        <p class="badge"><i class="dot"></i><span id="badge"></span></p>
+        <div class="avatar" id="avatar"></div>
+        <h1 id="name"></h1>
+        <p class="tagline" id="tagline"></p>
+        <div class="socials" id="social"></div>
+        <p class="fine" id="fine"></p>
+      </section>
+
+      <section id="games" class="section">
+        <div class="section-head reveal">
+          <h2>Play my <em>games</em></h2>
+          <div class="filters" id="filters" role="group" aria-label="Filter by tag"></div>
+        </div>
+        <ul class="cards" id="grid"></ul>
+      </section>
+
+      <section id="contact" class="section">
+        <div class="section-head reveal">
+          <h2>More</h2>
+          <span class="mono">ALSO</span>
+        </div>
+        <ul class="cards" id="extras"></ul>
+      </section>
+    </main>
+
+    <footer class="site-foot">
+      <span>© <span id="year"></span> <span id="footName"></span></span>
+      <span class="mono">MADE WITH TOO MUCH COFFEE</span>
+    </footer>
+  </div>
+
+  <script src="icons.js"></script>
+  <script src="games.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

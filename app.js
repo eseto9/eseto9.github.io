@@ -14,7 +14,7 @@
   };
 
   // ── Profile ──
-  document.title = site.name ? site.name + " — Games" : "Games";
+  document.title = site.name || "Games";
   const ICONS = window.ICONS || {};
   const setIcon = (node, name, fallback) => {
     if (ICONS[name]) node.innerHTML = ICONS[name];

@@ -67,6 +67,29 @@ window.ICONS = {
   </g>
 </svg>`,
 
+  // Marbles: a striker rolls into a bigger marble; on hover it's flung in
+  // again and again, with an impact burst and the struck marbles jolting away.
+  marble: `
+<svg viewBox="3 4 54 54" class="ic ic-marble" aria-hidden="true">
+  <g class="mb-lines" stroke="currentColor" stroke-width="2" stroke-linecap="round" opacity=".35">
+    <path d="M4 36 H9"/><path d="M5 43 H10"/>
+  </g>
+  <g class="mb-c">
+    <circle cx="50" cy="17" r="5.5" fill="var(--accent)" opacity=".55"/>
+  </g>
+  <g class="mb-b">
+    <circle cx="41" cy="38" r="11" fill="var(--accent)"/>
+    <circle cx="37" cy="34" r="3.2" fill="#fff" opacity=".55"/>
+  </g>
+  <g class="mb-a">
+    <circle cx="19" cy="40" r="8" fill="currentColor"/>
+    <circle cx="16.5" cy="37.5" r="2.3" fill="#fff" opacity=".45"/>
+  </g>
+  <g class="mb-hit" fill="var(--accent)">
+    <path d="M29 30 L30.5 35 L35 33 L31.5 37.5 L36 41 L30.5 40.5 L29 45 L27.5 40.5 L22 41 L26.5 37.5 L23 33 L27.5 35 Z"/>
+  </g>
+</svg>`,
+
   // Game controller for the logo / avatar — buttons blink.
   controller: `
 <svg viewBox="0 0 64 64" class="ic ic-controller" aria-hidden="true">

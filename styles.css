@@ -298,6 +298,24 @@ a, button, .card, .social, .filters button { cursor: pointer; }
 @keyframes ffFlap { to { transform: scaleY(.55); } }
 @keyframes spin { to { transform: rotate(360deg); } }
 
+/* marble: striker rolls up and taps the big marble; on hover it's flung in
+   repeatedly with an impact burst and the other marbles jolting away */
+.mb-a { animation: mbIdle 3s ease-in-out infinite; }
+.mb-b { animation: mbIdleB 3s ease-in-out infinite; }
+.mb-hit, .mb-lines { opacity: 0; }
+.card:hover .mb-a { animation: mbFling 1s cubic-bezier(.5, 0, .75, 0) infinite; }
+.card:hover .mb-b { animation: mbKnock 1s ease-out infinite; }
+.card:hover .mb-c { animation: mbJolt 1s ease-out infinite; }
+.card:hover .mb-hit { animation: mbBurst 1s ease-out infinite; }
+.card:hover .mb-lines { animation: mbLines 1s linear infinite; }
+@keyframes mbIdle { 0%, 100% { transform: translateX(-3px) rotate(0); } 50% { transform: translateX(1px) rotate(90deg); } }
+@keyframes mbIdleB { 0%, 45%, 100% { transform: none; } 55% { transform: translateX(1.5px); } }
+@keyframes mbFling { 0% { transform: translateX(-14px); opacity: 0; } 12% { opacity: 1; } 38% { transform: translateX(1px); } 55%, 100% { transform: translateX(-2px); opacity: 1; } }
+@keyframes mbKnock { 0%, 36% { transform: none; } 50% { transform: translate(5px, -2px) scale(.95); } 100% { transform: none; } }
+@keyframes mbJolt { 0%, 40% { transform: none; } 55% { transform: translate(3px, -4px); } 100% { transform: none; } }
+@keyframes mbBurst { 0%, 34% { opacity: 0; transform: scale(.2) rotate(0); } 44% { opacity: 1; transform: scale(1.25) rotate(20deg); } 70%, 100% { opacity: 0; transform: scale(.6) rotate(35deg); } }
+@keyframes mbLines { 0% { opacity: 0; } 10%, 35% { opacity: .5; } 45%, 100% { opacity: 0; } }
+
 /* controller: buttons blink in sequence; wiggle on hover */
 .ct-btn { animation: ctBlink 2.4s ease-in-out infinite; }
 .ct-b2 { animation-delay: .6s; } .ct-b3 { animation-delay: 1.2s; } .ct-b4 { animation-delay: 1.8s; }
@@ -314,8 +332,8 @@ a, button, .card, .social, .filters button { cursor: pointer; }
   background: linear-gradient(105deg, transparent 35%, rgba(255,255,255,.55) 50%, transparent 65%);
   transform: translateX(-120%);
 }
-.card:hover .thumb:not(:has(.ic-firefly, .ic-puzzle, .ic-boat)) > * { animation: tileBounce .8s ease-in-out infinite; }
-.card:hover .thumb:not(:has(.ic-firefly, .ic-puzzle, .ic-boat))::after { animation: shine 1.5s ease-in-out infinite; }
+.card:hover .thumb:not(:has(.ic-firefly, .ic-puzzle, .ic-boat, .ic-marble)) > * { animation: tileBounce .8s ease-in-out infinite; }
+.card:hover .thumb:not(:has(.ic-firefly, .ic-puzzle, .ic-boat, .ic-marble))::after { animation: shine 1.5s ease-in-out infinite; }
 @keyframes tileBounce { 0%, 100% { transform: translateY(0) rotate(0); } 25% { transform: translateY(-4px) rotate(-6deg); } 75% { transform: translateY(1px) rotate(6deg); } }
 @keyframes shine { to { transform: translateX(120%); } }
 

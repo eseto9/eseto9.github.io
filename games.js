@@ -17,7 +17,7 @@ window.SITE = {
   ],
 };
 
-// One entry per game. To add a game, copy a block (from { to },) and change it.
+// One entry per project (games and apps). Cards show in this order. To add a game, copy a block (from { to },) and change it.
 //   title    → game name
 //   blurb    → one or two sentences under the name
 //   url      → where the card sends people (leave "" to show "coming soon")
@@ -27,6 +27,14 @@ window.SITE = {
 //   image    → OR a picture instead of an icon, e.g. "img/mygame.png"
 //   featured → true makes it a dark charcoal card (optional; currently unused)
 window.GAMES = [
+  {
+    title: "Hoops Hub",
+    blurb: "All your ESPN, Yahoo and Sleeper fantasy basketball leagues in one place.",
+    url: "https://hoops-hub-jwah.netlify.app/",
+    tags: ["fantasy", "basketball"],
+    color: "#f0913a",
+    icon: "hoop",
+  },
   {
     title: "LUMEN",
     blurb: "Fireflies vs. the Long Night. Your light is your life — survive 40 rounds until dawn. Solo, local party, or online.",
@@ -58,13 +66,5 @@ window.GAMES = [
     tags: ["arcade", "roguelite"],
     color: "#e8735f",
     icon: "marble",
-  },
-  {
-    title: "Hoops Hub",
-    blurb: "All your ESPN, Yahoo and Sleeper fantasy basketball leagues in one place.",
-    url: "https://hoops-hub-jwah.netlify.app/",
-    tags: ["fantasy", "basketball"],
-    color: "#f0913a",
-    icon: "hoop",
   },
 ];

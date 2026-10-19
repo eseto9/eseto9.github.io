@@ -258,8 +258,8 @@ a, button, .card, .social, .filters button { cursor: pointer; }
 .card:hover .pz-b-float { animation-play-state: paused; }
 .card:hover .pz-b { transform: none; }
 .card:hover .pz-a { animation: pzBump .35s ease-out .3s 1; }
-.card:hover .pz-spark { animation: pzFly .9s ease-out .35s infinite; }
-.card:hover .ps2 { animation-delay: .57s; } .card:hover .ps3 { animation-delay: .8s; } .card:hover .ps4 { animation-delay: 1.02s; }
+.card:hover .pz-spark { animation: pzFly 1.2s ease-out .35s infinite; }
+.card:hover .ps2 { animation-delay: .65s; } .card:hover .ps3 { animation-delay: .95s; } .card:hover .ps4 { animation-delay: 1.25s; }
 @keyframes pzFloat { 50% { transform: translate(1px, -3px) rotate(3deg); } }
 @keyframes pzBump { 40% { transform: translateX(-2px) scale(.96); } }
 @keyframes pzFly {
@@ -273,11 +273,11 @@ a, button, .card, .social, .filters button { cursor: pointer; }
 .bt-wave { transform-box: view-box; animation: btWave 3.4s linear infinite; }
 .bt-w2 { animation-duration: 2.4s; animation-direction: reverse; }
 .sp { opacity: 0; }
-.card:hover .bt-wave { animation-duration: 1.05s; }
-.card:hover .bt-w2 { animation-duration: .8s; }
-.card:hover .bt-boat { animation: btRace .95s ease-in-out infinite; }
-.card:hover .sp { animation: btSpray 1.1s ease-out infinite; }
-.card:hover .sp2 { animation-delay: .27s; } .card:hover .sp3 { animation-delay: .55s; }
+.card:hover .bt-wave { animation-duration: 1.3s; }
+.card:hover .bt-w2 { animation-duration: 1s; }
+.card:hover .bt-boat { animation: btRace 1.2s ease-in-out infinite; }
+.card:hover .sp { animation: btSpray 1.3s ease-out infinite; }
+.card:hover .sp2 { animation-delay: .33s; } .card:hover .sp3 { animation-delay: .65s; }
 @keyframes btRock { 0%, 100% { transform: translateY(0) rotate(-4deg); } 50% { transform: translateY(-3px) rotate(4deg); } }
 @keyframes btRace { 0%, 100% { transform: translateY(0) rotate(-7deg); } 50% { transform: translateY(-5px) rotate(5deg); } }
 @keyframes btWave { to { transform: translateX(32px); } }
@@ -290,8 +290,8 @@ a, button, .card, .social, .filters button { cursor: pointer; }
 .ff-body { animation: ffHover 3s ease-in-out infinite; }
 .ff-wing { animation: ffFlap .35s ease-in-out infinite alternate; }
 .card:hover .ff-glow { r: 30; }
-.card:hover .ff-orbit { animation-duration: 3s; }
-.card:hover .ff-wing { animation-duration: .12s; }
+.card:hover .ff-orbit { animation-duration: 4.5s; }
+.card:hover .ff-wing { animation-duration: .22s; }
 @keyframes ffPulse { 50% { opacity: .45; } }
 @keyframes ffTail { 50% { filter: brightness(1.35); } }
 @keyframes ffHover { 50% { transform: translateY(-3px); } }
@@ -303,11 +303,11 @@ a, button, .card, .social, .filters button { cursor: pointer; }
 .mb-a { animation: mbIdle 3s ease-in-out infinite; }
 .mb-b { animation: mbIdleB 3s ease-in-out infinite; }
 .mb-hit, .mb-lines { opacity: 0; }
-.card:hover .mb-a { animation: mbFling 1s cubic-bezier(.5, 0, .75, 0) infinite; }
-.card:hover .mb-b { animation: mbKnock 1s ease-out infinite; }
-.card:hover .mb-c { animation: mbJolt 1s ease-out infinite; }
-.card:hover .mb-hit { animation: mbBurst 1s ease-out infinite; }
-.card:hover .mb-lines { animation: mbLines 1s linear infinite; }
+.card:hover .mb-a { animation: mbFling 1.2s cubic-bezier(.5, 0, .75, 0) infinite; }
+.card:hover .mb-b { animation: mbKnock 1.2s ease-out infinite; }
+.card:hover .mb-c { animation: mbJolt 1.2s ease-out infinite; }
+.card:hover .mb-hit { animation: mbBurst 1.2s ease-out infinite; }
+.card:hover .mb-lines { animation: mbLines 1.2s linear infinite; }
 @keyframes mbIdle { 0%, 100% { transform: translateX(-3px) rotate(0); } 50% { transform: translateX(1px) rotate(90deg); } }
 @keyframes mbIdleB { 0%, 45%, 100% { transform: none; } 55% { transform: translateX(1.5px); } }
 @keyframes mbFling { 0% { transform: translateX(-14px); opacity: 0; } 12% { opacity: 1; } 38% { transform: translateX(1px); } 55%, 100% { transform: translateX(-2px); opacity: 1; } }
@@ -348,8 +348,8 @@ a, button, .card, .social, .filters button { cursor: pointer; }
   background: linear-gradient(105deg, transparent 35%, rgba(255,255,255,.55) 50%, transparent 65%);
   transform: translateX(-120%);
 }
-.card:hover .thumb:not(:has(.ic-firefly, .ic-puzzle, .ic-boat, .ic-marble, .ic-hoop)) > * { animation: tileBounce .8s ease-in-out infinite; }
-.card:hover .thumb:not(:has(.ic-firefly, .ic-puzzle, .ic-boat, .ic-marble, .ic-hoop))::after { animation: shine 1.5s ease-in-out infinite; }
+.card:hover .thumb:not(:has(.ic-firefly, .ic-puzzle, .ic-boat, .ic-marble, .ic-hoop)) > * { animation: tileBounce 1.2s ease-in-out infinite; }
+.card:hover .thumb:not(:has(.ic-firefly, .ic-puzzle, .ic-boat, .ic-marble, .ic-hoop))::after { animation: shine 1.8s ease-in-out infinite; }
 @keyframes tileBounce { 0%, 100% { transform: translateY(0) rotate(0); } 25% { transform: translateY(-4px) rotate(-6deg); } 75% { transform: translateY(1px) rotate(6deg); } }
 @keyframes shine { to { transform: translateX(120%); } }
 

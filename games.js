@@ -4,9 +4,9 @@
 // ─────────────────────────────────────────────────────────────
 
 window.SITE = {
-  name: "Eugene's Games",
+  name: "Eugene's Projects",
   mark: "controller",                        // icon next to your name (see icons.js)
-  tagline: "Learning how to create games with Claude",
+  tagline: "Learning how to build with Claude",
   fine: "No downloads · No accounts · Just click and play",   // footer line
 
   // Pill buttons in the top right.

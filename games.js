@@ -23,7 +23,7 @@ window.SITE = {
 //   url      → where the card sends people (leave "" to show "coming soon")
 //   tags     → little labels (filter buttons appear once you have 6+ games)
 //   color    → card accent color (stripe, icon, hover glow)
-//   icon     → an animated icon from icons.js: puzzle, boat, firefly, marble, controller
+//   icon     → an animated icon from icons.js: puzzle, boat, firefly, marble, hoop, controller
 //   image    → OR a picture instead of an icon, e.g. "img/mygame.png"
 //   featured → true makes it a dark charcoal card (optional; currently unused)
 window.GAMES = [
@@ -58,5 +58,13 @@ window.GAMES = [
     tags: ["arcade", "roguelite"],
     color: "#e8735f",
     icon: "marble",
+  },
+  {
+    title: "Hoops Hub",
+    blurb: "All your ESPN, Yahoo and Sleeper fantasy basketball leagues in one place.",
+    url: "https://hoops-hub-jwah.netlify.app/",
+    tags: ["fantasy", "basketball"],
+    color: "#f0913a",
+    icon: "hoop",
   },
 ];

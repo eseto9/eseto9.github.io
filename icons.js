@@ -90,6 +90,25 @@ window.ICONS = {
   </g>
 </svg>`,
 
+  // Basketball: dribbles in place; on hover it arcs into the hoop and swishes the net.
+  hoop: `
+<svg viewBox="0 0 64 64" class="ic ic-hoop" aria-hidden="true">
+  <rect x="47" y="8" width="4" height="24" rx="1.5" fill="currentColor" opacity=".8"/>
+  <path d="M47 22 H44" stroke="currentColor" stroke-width="2" opacity=".8"/>
+  <g class="hp-net" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" opacity=".45">
+    <path d="M29 24 L32 36 M45 24 L42 36 M33 24 L35 36 M41 24 L39 36 M37 24 V36"/>
+    <path d="M30 29 H44 M31.5 33 H42.5"/>
+  </g>
+  <g class="hp-ball">
+    <circle cx="14" cy="46" r="7" fill="var(--accent)"/>
+    <g fill="none" stroke="currentColor" stroke-width="1.1" opacity=".55">
+      <path d="M7 46 H21"/><path d="M14 39 V53"/>
+      <path d="M9 41 Q13 46 9 51"/><path d="M19 41 Q15 46 19 51"/>
+    </g>
+  </g>
+  <path d="M28 24 H46" stroke="var(--accent)" stroke-width="3" stroke-linecap="round"/>
+</svg>`,
+
   // Game controller for the logo / avatar — buttons blink.
   controller: `
 <svg viewBox="0 0 64 64" class="ic ic-controller" aria-hidden="true">

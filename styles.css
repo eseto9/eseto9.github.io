@@ -316,6 +316,22 @@ a, button, .card, .social, .filters button { cursor: pointer; }
 @keyframes mbBurst { 0%, 34% { opacity: 0; transform: scale(.2) rotate(0); } 44% { opacity: 1; transform: scale(1.25) rotate(20deg); } 70%, 100% { opacity: 0; transform: scale(.6) rotate(35deg); } }
 @keyframes mbLines { 0% { opacity: 0; } 10%, 35% { opacity: .5; } 45%, 100% { opacity: 0; } }
 
+/* hoop: ball dribbles; on hover it arcs into the hoop, drops through, and the net swishes */
+.hp-ball { animation: hpDribble 1.4s ease-in-out infinite; }
+.hp-net { transform-origin: 50% 0%; }
+.card:hover .hp-ball { animation: hpShot 1.2s ease-in-out infinite; }
+.card:hover .hp-net { animation: hpSwish 1.2s ease-out infinite; }
+@keyframes hpDribble { 0%, 100% { transform: translateY(-6px); } 45% { transform: translateY(0) scale(1.06, .92); } 55% { transform: translateY(0); } }
+@keyframes hpShot {
+  0%   { transform: translate(0, 0) rotate(0); opacity: 1; }
+  35%  { transform: translate(12px, -34px) rotate(160deg) scale(.85); }
+  55%  { transform: translate(23px, -24px) rotate(260deg) scale(.8); opacity: 1; }
+  72%  { transform: translate(23px, -10px) rotate(300deg) scale(.8); opacity: 0; }
+  86%  { transform: translate(0, 0); opacity: 0; }
+  100% { transform: translate(0, 0); opacity: 1; }
+}
+@keyframes hpSwish { 0%, 55% { transform: none; } 63% { transform: scaleY(1.18) skewX(-4deg); } 72% { transform: scaleY(.95) skewX(3deg); } 82%, 100% { transform: none; } }
+
 /* controller: buttons blink in sequence; wiggle on hover */
 .ct-btn { animation: ctBlink 2.4s ease-in-out infinite; }
 .ct-b2 { animation-delay: .6s; } .ct-b3 { animation-delay: 1.2s; } .ct-b4 { animation-delay: 1.8s; }
@@ -332,8 +348,8 @@ a, button, .card, .social, .filters button { cursor: pointer; }
   background: linear-gradient(105deg, transparent 35%, rgba(255,255,255,.55) 50%, transparent 65%);
   transform: translateX(-120%);
 }
-.card:hover .thumb:not(:has(.ic-firefly, .ic-puzzle, .ic-boat, .ic-marble)) > * { animation: tileBounce .8s ease-in-out infinite; }
-.card:hover .thumb:not(:has(.ic-firefly, .ic-puzzle, .ic-boat, .ic-marble))::after { animation: shine 1.5s ease-in-out infinite; }
+.card:hover .thumb:not(:has(.ic-firefly, .ic-puzzle, .ic-boat, .ic-marble, .ic-hoop)) > * { animation: tileBounce .8s ease-in-out infinite; }
+.card:hover .thumb:not(:has(.ic-firefly, .ic-puzzle, .ic-boat, .ic-marble, .ic-hoop))::after { animation: shine 1.5s ease-in-out infinite; }
 @keyframes tileBounce { 0%, 100% { transform: translateY(0) rotate(0); } 25% { transform: translateY(-4px) rotate(-6deg); } 75% { transform: translateY(1px) rotate(6deg); } }
 @keyframes shine { to { transform: translateX(120%); } }
 

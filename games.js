@@ -22,10 +22,9 @@ window.SITE = {
 //   blurb    → one or two sentences under the name
 //   url      → where the card sends people (leave "" to show "coming soon")
 //   tags     → little labels (filter buttons appear once you have 6+ games)
-//   color    → card accent color (stripe, icon, hover glow)
+//   color    → accent color (icon tile, hover tint, Open button)
 //   icon     → an animated icon from icons.js: puzzle, boat, firefly, marble, hoop, controller
 //   image    → OR a picture instead of an icon, e.g. "img/mygame.png"
-//   featured → true makes it a dark charcoal card (optional; currently unused)
 window.GAMES = [
   {
     title: "Hoops Hub",

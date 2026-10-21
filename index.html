@@ -2,44 +2,43 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Games</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Projects</title>
   <meta name="description" content="Games and apps I've made. Click any card to open it.">
+  <meta name="theme-color" content="#f2f2f7" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=Instrument+Serif:ital@1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <!-- Soft drifting color blobs + floating bubbles behind everything -->
-  <div class="aurora" aria-hidden="true">
-    <span class="blob b1"></span><span class="blob b2"></span><span class="blob b3"></span><span class="blob b4"></span>
-  </div>
-  <div class="bubbles" id="bubbles" aria-hidden="true"></div>
+  <!-- Frosted top bar that appears once you scroll (like an iOS navigation bar) -->
+  <header class="nav-bar" id="navBar">
+    <div class="nav-inner">
+      <span class="nav-title" id="navTitle"></span>
+      <div class="socials" id="social"></div>
+    </div>
+  </header>
 
   <div class="wrap">
-    <header class="site-head">
-      <div class="brand">
-        <span class="brand-mark" id="brandMark"></span>
-        <div class="brand-text">
-          <h1 id="name"></h1>
-          <p class="tagline" id="tagline"></p>
-        </div>
-      </div>
-      <div class="socials" id="social"></div>
-    </header>
+    <section class="hero">
+      <span class="app-mark" id="brandMark"></span>
+      <h1 id="name"></h1>
+      <p class="tagline" id="tagline"></p>
+    </section>
 
     <main id="games">
       <div class="section-head">
-        <h2>My <em>projects</em></h2>
-        <div class="filters" id="filters" role="group" aria-label="Filter by tag"></div>
+        <h2>My projects</h2>
+        <div class="segmented" id="filters" role="group" aria-label="Filter by tag"></div>
       </div>
-      <ul class="cards" id="grid"></ul>
+      <ul class="list" id="grid"></ul>
     </main>
 
     <footer class="site-foot">
-      <span>© <span id="year"></span> <span id="footName"></span></span>
-      <span class="mono" id="fine"></span>
+      <p id="fine"></p>
+      <p>© <span id="year"></span> <span id="footName"></span></p>
     </footer>
   </div>
 

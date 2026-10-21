@@ -1,6 +1,7 @@
 (function () {
   const site = window.SITE || {};
   const games = window.GAMES || [];
+  const ICONS = window.ICONS || {};
   const $ = (id) => document.getElementById(id);
   const el = (tag, cls, text) => {
     const n = document.createElement(tag);
@@ -12,16 +13,16 @@
     a.href = url;
     if (!url.startsWith("mailto:") && !url.startsWith("#")) { a.target = "_blank"; a.rel = "noopener"; }
   };
-
-  // ── Profile ──
-  document.title = site.name || "Games";
-  const ICONS = window.ICONS || {};
   const setIcon = (node, name, fallback) => {
     if (ICONS[name]) node.innerHTML = ICONS[name];
     else node.replaceChildren(el("span", "glyph", name || fallback || ""));
   };
+
+  // ── Header ──
+  document.title = site.name || "Projects";
   setIcon($("brandMark"), site.mark, "★");
   $("name").textContent = site.name || "";
+  $("navTitle").textContent = site.name || "";
   $("tagline").textContent = site.tagline || "";
   $("fine").textContent = site.fine || "";
   $("footName").textContent = site.name || "";
@@ -35,16 +36,13 @@
     $("social").appendChild(a);
   }
 
-  // ── Cards ──
-  function card(g, opts = {}) {
+  // ── Rows (one per project) ──
+  function row(g) {
     const li = el("li");
     const live = !!g.url;
-    const c = el(live ? "a" : "div", "card");
-    if (opts.slim) c.classList.add("slim");
-    if (g.featured) c.classList.add("featured");
-    if (!live) c.classList.add("soon");
+    const c = el(live ? "a" : "div", "card" + (live ? "" : " soon"));
     if (live) external(c, g.url);
-    c.style.setProperty("--accent", g.color || "var(--green)");
+    c.style.setProperty("--accent", g.color || "var(--blue)");
 
     const thumb = el("div", "thumb");
     if (g.image) {
@@ -59,27 +57,18 @@
     body.appendChild(el("h3", null, g.title));
     if (g.blurb) body.appendChild(el("p", null, g.blurb));
     if (g.tags && g.tags.length) {
-      const chips = el("div", "chips");
-      for (const t of g.tags) {
-        const ch = el("span", "chip");
-        ch.appendChild(el("i", "dot"));
-        ch.appendChild(document.createTextNode(t));
-        chips.appendChild(ch);
-      }
-      if (!live) chips.appendChild(el("span", "chip soon-chip", "coming soon"));
-      body.appendChild(chips);
+      body.appendChild(el("span", "meta", g.tags.map((t) => t[0].toUpperCase() + t.slice(1)).join(" · ")));
     }
 
-    const arrow = el("span", "arrow");
-    if (live) setIcon(arrow, "arrow"); else arrow.textContent = "…";
-    arrow.setAttribute("aria-hidden", "true");
+    const btn = el("span", "open-btn", live ? "Open" : "Soon");
+    btn.setAttribute("aria-hidden", "true");
 
-    c.append(thumb, body, arrow);
+    c.append(thumb, body, btn);
     li.appendChild(c);
     return li;
   }
 
-  // ── Filters ──
+  // ── Segmented filter (only once there are enough projects to need it) ──
   const tags = games.length > 5 ? ["all", ...new Set(games.flatMap((g) => g.tags || []))] : [];
   let active = "all";
   for (const t of tags) {
@@ -92,31 +81,12 @@
 
   function render() {
     const shown = games.filter((g) => active === "all" || (g.tags || []).includes(active));
-    $("grid").replaceChildren(...shown.map((g) => card(g)));
+    $("grid").replaceChildren(...shown.map(row));
     for (const b of $("filters").children) b.setAttribute("aria-pressed", b.dataset.tag === active);
-    observe($("grid"));
   }
-
-
-  // ── Scroll reveal (fade + rise as things enter the screen) ──
-  const io = "IntersectionObserver" in window
-    ? new IntersectionObserver((entries) => {
-        entries.forEach((e, i) => {
-          if (!e.isIntersecting) return;
-          e.target.style.transitionDelay = Math.min(i * 60, 300) + "ms";
-          e.target.classList.add("in");
-          io.unobserve(e.target);
-        });
-      }, { threshold: 0.12 })
-    : null;
-  function observe(root) {
-    root.querySelectorAll(".reveal:not(.in)").forEach((n) => (io ? io.observe(n) : n.classList.add("in")));
-  }
-
   render();
-  observe(document);
 
-  // ── Cursor-follow glow on cards ──
+  // ── Soft glow that follows the cursor inside the hovered row ──
   document.addEventListener("pointermove", (e) => {
     const c = e.target.closest && e.target.closest(".card");
     if (!c) return;
@@ -125,20 +95,12 @@
     c.style.setProperty("--my", e.clientY - r.top + "px");
   });
 
-  // ── Floating bubbles in the background ──
-  const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  if (!reduce) {
-    const box = $("bubbles");
-    for (let i = 0; i < 18; i++) {
-      const b = el("span", "bubble");
-      const size = 10 + Math.random() * 46;
-      b.style.width = b.style.height = size + "px";
-      b.style.left = Math.random() * 100 + "%";
-      b.style.animationDuration = 14 + Math.random() * 18 + "s";
-      b.style.animationDelay = -Math.random() * 30 + "s";
-      b.style.setProperty("--sway", (Math.random() * 60 - 30).toFixed(0) + "px");
-      box.appendChild(b);
-    }
-  }
-
+  // ── Nav bar: frosts as soon as you scroll; small title appears once the big one is gone ──
+  const hero = document.querySelector(".hero h1");
+  const onScroll = () => {
+    $("navBar").classList.toggle("scrolled", window.scrollY > 4);
+    $("navBar").classList.toggle("titled", hero.getBoundingClientRect().bottom < 56);
+  };
+  window.addEventListener("scroll", onScroll, { passive: true });
+  onScroll();
 })();

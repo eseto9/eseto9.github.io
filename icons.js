@@ -109,6 +109,16 @@ window.ICONS = {
   <path d="M28 24 H46" stroke="var(--accent)" stroke-width="3" stroke-linecap="round"/>
 </svg>`,
 
+  // Projects: an iOS-style folder of four mini app tiles in your projects' colors.
+  // Idle: each tile pops in turn. Hover: the tiles shuffle around the grid.
+  projects: `
+<svg viewBox="0 0 64 64" class="ic ic-projects" aria-hidden="true">
+  <g class="pr-tile pr-t0"><rect class="pr-pop" x="9" y="9" width="21" height="21" rx="6" fill="#f0913a"/></g>
+  <g class="pr-tile pr-t1"><rect class="pr-pop" x="9" y="9" width="21" height="21" rx="6" fill="#f2cf5b"/></g>
+  <g class="pr-tile pr-t2"><rect class="pr-pop" x="9" y="9" width="21" height="21" rx="6" fill="#6f9fd0"/></g>
+  <g class="pr-tile pr-t3"><rect class="pr-pop" x="9" y="9" width="21" height="21" rx="6" fill="#e8735f"/></g>
+</svg>`,
+
   // Game controller for the logo / avatar — buttons blink.
   controller: `
 <svg viewBox="0 0 64 64" class="ic ic-controller" aria-hidden="true">

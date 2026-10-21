@@ -79,13 +79,27 @@ a { color: inherit; text-decoration: none; }
 .hero { padding: 8px 4px 28px; }
 .app-mark {
   width: 64px; height: 64px; border-radius: 15px; display: grid; place-items: center; margin-bottom: 16px;
-  background: linear-gradient(160deg, #3c8a5c, #236747); color: #fff; --accent: #d4e8ab;
-  box-shadow: 0 6px 16px rgba(35, 103, 71, .25);
+  background: var(--cell); box-shadow: 0 6px 16px rgba(0, 0, 0, .08), inset 0 0 0 .5px var(--sep);
   transition: transform .4s cubic-bezier(.34, 1.56, .64, 1);
 }
-.app-mark svg { width: 70%; height: 70%; }
-.app-mark:hover { transform: rotate(-8deg) scale(1.06); }
-.app-mark:hover .ic-controller { animation: wiggle .5s ease-in-out; }
+.app-mark svg { width: 86%; height: 86%; }
+.app-mark:hover { transform: scale(1.06); }
+
+/* projects folder: tiles sit in a 2x2 grid; idle they pop one by one, hover shuffles them around */
+.pr-tile { transform-box: view-box; animation: prOrbit 4.8s cubic-bezier(.6, 0, .3, 1) infinite paused; }
+.pr-t1 { animation-delay: -1.2s; } .pr-t2 { animation-delay: -2.4s; } .pr-t3 { animation-delay: -3.6s; }
+.pr-pop { animation: prPop 4s ease-in-out infinite; }
+.pr-t1 .pr-pop { animation-delay: 1s; } .pr-t2 .pr-pop { animation-delay: 2s; } .pr-t3 .pr-pop { animation-delay: 3s; }
+.app-mark:hover .pr-tile { animation-play-state: running; }
+.app-mark:hover .pr-pop { animation: none; }
+@keyframes prOrbit {
+  0%, 18%   { transform: translate(0, 0); }
+  25%, 43%  { transform: translate(25px, 0); }
+  50%, 68%  { transform: translate(25px, 25px); }
+  75%, 93%  { transform: translate(0, 25px); }
+  100%      { transform: translate(0, 0); }
+}
+@keyframes prPop { 0%, 14%, 100% { transform: scale(1); } 6% { transform: scale(1.14); } }
 .hero h1 { font-size: clamp(32px, 6vw, 40px); font-weight: 700; letter-spacing: -0.025em; line-height: 1.1; }
 .tagline { margin-top: 6px; font-size: 17px; color: var(--label-2); }
 

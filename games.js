@@ -5,7 +5,7 @@
 
 window.SITE = {
   name: "Eugene's Projects",
-  mark: "controller",                        // icon next to your name (see icons.js)
+  mark: "projects",                          // icon above your name (see icons.js)
   tagline: "Learning how to build with Claude",
   fine: "No downloads · No accounts · Just click and play",   // footer line
 
@@ -23,7 +23,7 @@ window.SITE = {
 //   url      → where the card sends people (leave "" to show "coming soon")
 //   tags     → little labels (filter buttons appear once you have 6+ games)
 //   color    → accent color (icon tile, hover tint, Open button)
-//   icon     → an animated icon from icons.js: puzzle, boat, firefly, marble, hoop, controller
+//   icon     → an animated icon from icons.js: puzzle, boat, firefly, marble, hoop, controller, projects
 //   image    → OR a picture instead of an icon, e.g. "img/mygame.png"
 window.GAMES = [
   {

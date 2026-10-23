@@ -69,7 +69,7 @@
   }
 
   // ── Segmented filter (only once there are enough projects to need it) ──
-  const tags = games.length > 5 ? ["all", ...new Set(games.flatMap((g) => g.tags || []))] : [];
+  const tags = games.length > 9 ? ["all", ...new Set(games.flatMap((g) => g.tags || []))] : [];
   let active = "all";
   for (const t of tags) {
     const b = el("button", null, t);

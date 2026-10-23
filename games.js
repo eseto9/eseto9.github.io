@@ -21,11 +21,19 @@ window.SITE = {
 //   title    → game name
 //   blurb    → one or two sentences under the name
 //   url      → where the card sends people (leave "" to show "coming soon")
-//   tags     → little labels (filter buttons appear once you have 6+ games)
+//   tags     → little labels (filter buttons appear once you have 10+ projects)
 //   color    → accent color (icon tile, hover tint, Open button)
-//   icon     → an animated icon from icons.js: puzzle, boat, firefly, marble, hoop, controller, projects
+//   icon     → an animated icon from icons.js: puzzle, boat, firefly, marble, hoop, chart, controller, projects
 //   image    → OR a picture instead of an icon, e.g. "img/mygame.png"
 window.GAMES = [
+  {
+    title: "Tipoff",
+    blurb: "NBA game predictions. A player-aware model that calls every game before tipoff, updated every morning.",
+    url: "https://eseto9.github.io/NBA-Model/",
+    tags: ["NBA", "predictions"],
+    color: "#2fb39a",
+    icon: "chart",
+  },
   {
     title: "Hoops Hub",
     blurb: "All your ESPN, Yahoo and Sleeper fantasy basketball leagues in one place.",

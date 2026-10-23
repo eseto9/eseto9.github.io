@@ -119,6 +119,24 @@ window.ICONS = {
   <g class="pr-tile pr-t3"><rect class="pr-pop" x="9" y="9" width="21" height="21" rx="6" fill="#e8735f"/></g>
 </svg>`,
 
+  // Chart: a prediction line over faint bars with a pulsing "today" dot;
+  // on hover the bars rise and the line redraws itself.
+  chart: `
+<svg viewBox="0 0 64 64" class="ic ic-chart" aria-hidden="true">
+  <g class="ch-bars" fill="currentColor" opacity=".16">
+    <rect class="ch-bar cb1" x="9" y="40" width="7" height="14" rx="2"/>
+    <rect class="ch-bar cb2" x="21" y="34" width="7" height="20" rx="2"/>
+    <rect class="ch-bar cb3" x="33" y="37" width="7" height="17" rx="2"/>
+    <rect class="ch-bar cb4" x="45" y="24" width="7" height="30" rx="2"/>
+  </g>
+  <path class="ch-area" d="M8 44 L20 36 L31 40 L43 24 L56 15 L56 54 L8 54 Z" fill="var(--accent)" opacity=".22"/>
+  <path class="ch-line" d="M8 44 L20 36 L31 40 L43 24 L56 15" pathLength="100"
+        fill="none" stroke="var(--accent)" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle class="ch-ring" cx="56" cy="15" r="4" fill="none" stroke="var(--accent)" stroke-width="1.6"/>
+  <circle class="ch-dot" cx="56" cy="15" r="3.6" fill="currentColor"/>
+  <path d="M6 54.5 H58" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" opacity=".3"/>
+</svg>`,
+
   // Game controller for the logo / avatar — buttons blink.
   controller: `
 <svg viewBox="0 0 64 64" class="ic ic-controller" aria-hidden="true">

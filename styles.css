@@ -290,6 +290,22 @@ a, button, .card { cursor: pointer; }
 }
 @keyframes hpSwish { 0%, 55% { transform: none; } 63% { transform: scaleY(1.18) skewX(-4deg); } 72% { transform: scaleY(.95) skewX(3deg); } 82%, 100% { transform: none; } }
 
+/* chart: dot pulses; on hover the bars rise one by one and the line redraws */
+.ch-ring { animation: chRing 2.4s ease-out infinite; }
+.ch-line { stroke-dasharray: 100; stroke-dashoffset: 0; }
+.ch-bar { transform-origin: 50% 100%; }
+.card:hover .ch-line { animation: chDraw 1.2s ease-in-out infinite; }
+.card:hover .ch-area { animation: chArea 1.2s ease-in-out infinite; }
+.card:hover .ch-dot { animation: chDot 1.2s ease-in-out infinite; }
+.card:hover .ch-ring { animation-duration: 1.2s; }
+.card:hover .ch-bar { animation: chBar 1.2s ease-in-out infinite; }
+.card:hover .cb2 { animation-delay: .08s; } .card:hover .cb3 { animation-delay: .16s; } .card:hover .cb4 { animation-delay: .24s; }
+@keyframes chRing { 0% { opacity: .9; transform: scale(.8); } 70%, 100% { opacity: 0; transform: scale(2.2); } }
+@keyframes chDraw { 0% { stroke-dashoffset: 100; } 55%, 100% { stroke-dashoffset: 0; } }
+@keyframes chArea { 0%, 20% { opacity: 0; } 60%, 100% { opacity: .22; } }
+@keyframes chDot { 0%, 45% { transform: scale(0); } 60% { transform: scale(1.35); } 75%, 100% { transform: scale(1); } }
+@keyframes chBar { 0%, 100% { transform: scaleY(1); } 40% { transform: scaleY(1.25); } }
+
 /* controller: buttons blink in sequence; wiggle on hover */
 .ct-btn { animation: ctBlink 2.4s ease-in-out infinite; }
 .ct-b2 { animation-delay: .6s; } .ct-b3 { animation-delay: 1.2s; } .ct-b4 { animation-delay: 1.8s; }
@@ -305,8 +321,8 @@ a, button, .card { cursor: pointer; }
   background: linear-gradient(105deg, transparent 35%, rgba(255,255,255,.55) 50%, transparent 65%);
   transform: translateX(-120%);
 }
-.card:hover .thumb:not(:has(.ic-firefly, .ic-puzzle, .ic-boat, .ic-marble, .ic-hoop)) > * { animation: tileBounce 1.2s ease-in-out infinite; }
-.card:hover .thumb:not(:has(.ic-firefly, .ic-puzzle, .ic-boat, .ic-marble, .ic-hoop))::after { animation: shine 1.8s ease-in-out infinite; }
+.card:hover .thumb:not(:has(.ic-firefly, .ic-puzzle, .ic-boat, .ic-marble, .ic-hoop, .ic-chart)) > * { animation: tileBounce 1.2s ease-in-out infinite; }
+.card:hover .thumb:not(:has(.ic-firefly, .ic-puzzle, .ic-boat, .ic-marble, .ic-hoop, .ic-chart))::after { animation: shine 1.8s ease-in-out infinite; }
 @keyframes tileBounce { 0%, 100% { transform: translateY(0) rotate(0); } 25% { transform: translateY(-4px) rotate(-6deg); } 75% { transform: translateY(1px) rotate(6deg); } }
 @keyframes shine { to { transform: translateX(120%); } }
 

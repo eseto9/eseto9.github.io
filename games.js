@@ -5,7 +5,7 @@
 
 window.SITE = {
   name: "Eugene's Projects",
-  mark: "projects",                          // icon above your name (see icons.js)
+  mark: "projects",                          // icon beside your name (see icons.js)
   tagline: "Learning how to build with Claude",
   fine: "No downloads · No accounts · Just click and play",   // footer line
 

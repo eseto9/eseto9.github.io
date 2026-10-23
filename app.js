@@ -18,11 +18,10 @@
     else node.replaceChildren(el("span", "glyph", name || fallback || ""));
   };
 
-  // ── Header ──
+  // ── Left column ──
   document.title = site.name || "Projects";
   setIcon($("brandMark"), site.mark, "★");
   $("name").textContent = site.name || "";
-  $("navTitle").textContent = site.name || "";
   $("tagline").textContent = site.tagline || "";
   $("fine").textContent = site.fine || "";
   $("footName").textContent = site.name || "";
@@ -36,9 +35,10 @@
     $("social").appendChild(a);
   }
 
-  // ── Rows (one per project) ──
-  function row(g) {
+  // ── Project cards ──
+  function card(g, i) {
     const li = el("li");
+    li.style.setProperty("--i", i);
     const live = !!g.url;
     const c = el(live ? "a" : "div", "card" + (live ? "" : " soon"));
     if (live) external(c, g.url);
@@ -56,19 +56,21 @@
     const body = el("div", "body");
     body.appendChild(el("h3", null, g.title));
     if (g.blurb) body.appendChild(el("p", null, g.blurb));
-    if (g.tags && g.tags.length) {
-      body.appendChild(el("span", "meta", g.tags.map((t) => t[0].toUpperCase() + t.slice(1)).join(" · ")));
-    }
 
-    const btn = el("span", "open-btn", live ? "Open" : "Soon");
-    btn.setAttribute("aria-hidden", "true");
+    const row = el("div", "row");
+    row.appendChild(el("span", "meta", (g.tags || []).map((t) => t[0].toUpperCase() + t.slice(1)).join(" · ")));
+    const go = el("span", "go");
+    go.setAttribute("aria-hidden", "true");
+    if (live) setIcon(go, "arrow"); else { go.textContent = "Soon"; go.classList.add("is-text"); }
+    row.appendChild(go);
+    body.appendChild(row);
 
-    c.append(thumb, body, btn);
+    c.append(thumb, body);
     li.appendChild(c);
     return li;
   }
 
-  // ── Segmented filter (only once there are enough projects to need it) ──
+  // ── Filter (only once there are enough projects to need it) ──
   const tags = games.length > 9 ? ["all", ...new Set(games.flatMap((g) => g.tags || []))] : [];
   let active = "all";
   for (const t of tags) {
@@ -81,12 +83,13 @@
 
   function render() {
     const shown = games.filter((g) => active === "all" || (g.tags || []).includes(active));
-    $("grid").replaceChildren(...shown.map(row));
+    $("grid").replaceChildren(...shown.map(card));
+    $("count").textContent = String(shown.length).padStart(2, "0");
     for (const b of $("filters").children) b.setAttribute("aria-pressed", b.dataset.tag === active);
   }
   render();
 
-  // ── Soft glow that follows the cursor inside the hovered row ──
+  // ── Soft glow that follows the cursor inside the hovered card ──
   document.addEventListener("pointermove", (e) => {
     const c = e.target.closest && e.target.closest(".card");
     if (!c) return;
@@ -94,13 +97,4 @@
     c.style.setProperty("--mx", e.clientX - r.left + "px");
     c.style.setProperty("--my", e.clientY - r.top + "px");
   });
-
-  // ── Nav bar: frosts as soon as you scroll; small title appears once the big one is gone ──
-  const hero = document.querySelector(".hero h1");
-  const onScroll = () => {
-    $("navBar").classList.toggle("scrolled", window.scrollY > 4);
-    $("navBar").classList.toggle("titled", hero.getBoundingClientRect().bottom < 56);
-  };
-  window.addEventListener("scroll", onScroll, { passive: true });
-  onScroll();
 })();

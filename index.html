@@ -5,37 +5,32 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Projects</title>
   <meta name="description" content="Games and apps I've made. Click any card to open it.">
-  <meta name="theme-color" content="#f2f2f7" media="(prefers-color-scheme: light)">
-  <meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#f5f5f7" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0b0b0d" media="(prefers-color-scheme: dark)">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <!-- Frosted top bar that appears once you scroll (like an iOS navigation bar) -->
-  <header class="nav-bar" id="navBar">
-    <div class="nav-inner">
-      <span class="nav-title" id="navTitle"></span>
-      <div class="socials" id="social"></div>
-    </div>
-  </header>
-
-  <div class="wrap">
-    <section class="hero">
-      <span class="app-mark" id="brandMark"></span>
-      <div class="hero-text">
-        <h1 id="name"></h1>
-        <p class="tagline" id="tagline"></p>
+  <div class="page">
+    <aside class="side">
+      <div class="brand">
+        <span class="app-mark" id="brandMark"></span>
+        <div class="brand-text">
+          <h1 id="name"></h1>
+          <p class="tagline" id="tagline"></p>
+        </div>
       </div>
-    </section>
+      <div class="socials" id="social"></div>
+    </aside>
 
     <main id="games">
       <div class="section-head">
-        <h2>My projects</h2>
+        <h2>Projects <span class="count" id="count"></span></h2>
         <div class="segmented" id="filters" role="group" aria-label="Filter by tag"></div>
       </div>
-      <ul class="list" id="grid"></ul>
+      <ul class="grid" id="grid"></ul>
     </main>
 
     <footer class="site-foot">

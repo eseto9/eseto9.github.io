@@ -27,6 +27,14 @@ window.SITE = {
 //   image    → OR a picture instead of an icon, e.g. "img/mygame.png"
 window.GAMES = [
   {
+    title: "Date Nights in the DMV",
+    blurb: "A month-by-month calendar of date ideas around DC, Maryland and Virginia, with dates, prices and a saved list.",
+    url: "https://eseto9.github.io/DMVActivities/",
+    tags: ["dates", "calendar"],
+    color: "#d9497a",
+    icon: "projects",
+  },
+  {
     title: "Tipoff",
     blurb: "NBA game predictions. A player-aware model that calls every game before tipoff, updated every morning.",
     url: "https://eseto9.github.io/NBA-Model/",
